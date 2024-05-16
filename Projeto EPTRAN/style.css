@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-/* Home */
+
 
     .fonte{
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
         font-size: 16px;
         font-weight: bold;
-        
     }
 
+    
     *{
         margin: 0;
         padding: 0;
@@ -18,7 +18,7 @@
 
     header{
         background-color: #0C326F;
-        /* border: black 5px solid; */
+       
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -30,7 +30,7 @@
         width: 9vh;
         height: 6vw;
         display: flex;
-        /* margin-right: 10px; */
+        
     }
 
     .container-brasao{
@@ -59,7 +59,7 @@
         text-transform: uppercase;
         border-radius: 5px;
         padding: 8px;
-        /* border: 5px solid black; */
+        
     }
 
     .menu li a:hover{
@@ -67,6 +67,8 @@
     }
 
     .home_brasao{
+        margin-top: 100px;
+        margin-bottom: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -80,30 +82,90 @@
     .incial_img {
         justify-content: space-between;
         display: flex; 
-        /* border: 2px solid black;       */
         
+      
     }
 
     .incial_img img{
         width: 600px;
         background-color: #f0f0f0;
         border-radius: 10px;
-        border: 2px solid black;
+        border: 1px solid black;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     }
 
-    .textos_home_1{
-      justify-content: space-between;   
-      /* border: 2px solid black; */
+    .texto_home_1{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 45px;
+        justify-content: space-between;
+        font-weight: bold;
+        color: #333333;
+    }
+    .texto_home_2{
+        width: 85%;
+    }
+    .texto_home_2 p{
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 30px;
+        justify-content: space-between;
+        color: #333333;
+        font-weight: 500;
     }
 
     .Series_Incias{
         display: flex;
-        /* border: 2px solid black; */
-        gap: 120px;
+        
+        gap: 30px;
         justify-content: center;
+        margin-top: 90px;
+        align-items: center;
     }
-/* Login */
+    
+    .quadrado1{
+        display: inline-table;
+        margin-left: -80px;
+    
+    }
+    .Ensino_Home{
+        display: flex;
+       
+        gap: 130px;
+        justify-content: center;
+        margin-top: 90px;   
+        margin-bottom: 60px;
+        margin-left: 10px;
+        align-items: center;
+    }
+
+    .Acessar .botao_home{
+        width: 20%;
+        height: 45px;
+        background: #222222;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+        border-radius: 10px;
+        border: 2px solid black;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        color: white;
+        
+    }
+
+    .duvidas{
+        display: flex;
+        justify-content: center;
+        font-size: 35px;
+        
+        
+    }
+
+/*login*/
+
 
     *{
         margin: 0;
@@ -124,7 +186,7 @@
 
     .aparencia{
         width: 420px;
-        /* background: rgb(238, 169, 42); */
+        
         color: #333333;
         border-radius: 10px;
         padding: 30px 40px;
@@ -218,7 +280,7 @@
 
     .aparencia{
         width: 420px;
-        /* background: rgb(238, 169, 42); */
+        
         color: #333333;
         border-radius: 10px;
         padding: 30px 40px;
@@ -243,7 +305,7 @@
         background: transparent;
         border: none;
         outline: none;
-        /* border: 2px solid rgb(156, 223, 153); */
+        
         border-radius: 40px;
         font-size: 16px;
         color:#333333;
@@ -275,23 +337,6 @@
 
     .esquecer-senha a:hover{
         text-decoration: underline;
-    }
-
-    .aparencia .botao{
-        width: 50%;
-        height: 35px;
-        background: #222222;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-        cursor: pointer;
-        font-size: 16px;
-        color:#FFFFFF;
-        font-weight: 600;
-        margin-left: 80px;
-        margin-top: 5px;
-        margin-bottom: 15px;
     }
 
     .aparencia .registro-link{
@@ -326,26 +371,39 @@
         margin-top: 150px;
     }
 
-/* Séries Finais */
+
 
 .container1{
     display: flex;
-    /* border: 5px solid black; */
+    
     margin: 100px 150px 0 150px
 }
 
 .container2{
     display: flex;
-    /* border: 5px solid black; */
+    
     margin: 40px 150px 0 150px;
     justify-content: center;
 }
 
 .container3{
     display: flex;
-    /* border: 5px solid black; */
+    
     margin: 100px 150px 0 150px;
 }
+
+.container4{
+    display: flex;
+    
+    margin: 100px 2050px 0 150px;
+}
+
+.container5{
+    display: flex;
+    
+    margin: -16px 150px 0 1000px;
+}
+
 
 .subtitulo{
     font-size: 24px;
@@ -355,15 +413,27 @@
 
 .titulo{
     font-size: 72px;
-    /* border: 5px solid black; */
+    
     margin: 10px 0 25px 25px;
     padding-left: 20px;
 }
 
 .bloco{
-    /* border: 5px solid black; */
+    
     display: flex;
     margin: 30px 150px 0 150px;
+}
+
+.bloco-2{
+     
+     display: flex;
+     margin: 30px 1150px 0 150px;
+}
+
+.bloco-3{
+     
+     display: flex;
+     margin: -140px 150px 0 1000px;
 }
 
 h3{
@@ -378,10 +448,11 @@ p{
     
 }
 
-/* Roda-pé */
+
+
 
 footer {
-    background-color: rgb(218, 218, 218);
+    background-color: #f2f2f2
 }
 
 footer h1 {
@@ -399,4 +470,28 @@ footer ul {
     top: 0;
     width: 100%;
     
+}
+
+
+
+  .botao_login{
+    width: 60px;
+    height: 45px;
+    background: #ffffff00;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 15px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    
+}
+
+
+.container7{
+    display: flex;
+    margin: 40px 150px 0 150px;
+    justify-content: space-between;
 }
