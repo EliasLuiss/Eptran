@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-
     .fonte{
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
@@ -8,7 +7,6 @@
         font-weight: bold;
     }
 
-    
     *{
         margin: 0;
         padding: 0;
@@ -26,10 +24,46 @@
         padding: 2vh 0;
     }
 
+    footer {
+        background-color: #f2f2f2;
+    }
+
+    footer h1 {
+        justify-content: center;
+        display: flex;
+    }
+
+    footer ul {
+        margin-left: 120px;
+        list-style: none;
+    }
+
     .brasao-imagem{
         width: 9vh;
         height: 6vw;
         display: flex;
+        
+    }
+
+    .navbar{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        
+    }
+
+    .botao_login{
+        width: 60px;
+        height: 45px;
+        background: #ffffff00;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
         
     }
 
@@ -51,15 +85,13 @@
 
     }
 
-
     .menu li a{
         display: flex;
         text-decoration: none;
         color: #FFFFFF;
         text-transform: uppercase;
         border-radius: 5px;
-        padding: 8px;
-        
+        padding: 8px;  
     }
 
     .menu li a:hover{
@@ -82,8 +114,6 @@
     .incial_img {
         justify-content: space-between;
         display: flex; 
-        
-      
     }
 
     .incial_img img{
@@ -102,9 +132,11 @@
         font-weight: bold;
         color: #333333;
     }
+
     .texto_home_2{
         width: 85%;
     }
+
     .texto_home_2 p{
         font-family: "Inter", sans-serif;
         font-optical-sizing: auto;
@@ -166,15 +198,6 @@
 
 /*login*/
 
-
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-    }
-
-
     .login{
         display: block;
         justify-content: space-between;
@@ -186,7 +209,6 @@
 
     .aparencia{
         width: 420px;
-        
         color: #333333;
         border-radius: 10px;
         padding: 30px 40px;
@@ -212,7 +234,6 @@
         background: transparent;
         border: none;
         outline: none;
-        /* border: 2px solid rgb(156, 223, 153); */
         border-radius: 40px;
         font-size: 16px;
         color:#333333;
@@ -280,7 +301,6 @@
 
     .aparencia{
         width: 420px;
-        
         color: #333333;
         border-radius: 10px;
         padding: 30px 40px;
@@ -305,7 +325,6 @@
         background: transparent;
         border: none;
         outline: none;
-        
         border-radius: 40px;
         font-size: 16px;
         color:#333333;
@@ -371,127 +390,95 @@
         margin-top: 150px;
     }
 
+    /* Paginas */
 
+    .container1{
+        display: flex;
+        margin: 100px 150px 0 150px
+    }
 
-.container1{
-    display: flex;
-    
-    margin: 100px 150px 0 150px
-}
+    .container2{
+        display: flex;
+        margin: 40px 150px 0 150px;
+        justify-content: center;
+    }
 
-.container2{
-    display: flex;
-    
-    margin: 40px 150px 0 150px;
-    justify-content: center;
-}
+    .container2 img{
+        border-radius: 10px;
+    }
 
-.container3{
-    display: flex;
-    
-    margin: 100px 150px 0 150px;
-}
+    .container3{
+        display: flex;
+        margin: 40px 150px 0 150px;
+        justify-content: space-between;
+    }
 
-.container4{
-    display: flex;
-    
-    margin: 100px 2050px 0 150px;
-}
+    .container3 img{
+        border-radius: 20px;
+    }
 
-.container5{
-    display: flex;
-    
-    margin: -16px 150px 0 1000px;
-}
+    .container4 {
+        display: flex;
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 60px 10px 10px 150px;
+        gap: 900px;
+        
+    }
 
+    .container5{
+        display: flex;
+        font-family: "Inter", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 60px 10px 10px 150px;
+        gap: 790px;
+    }
 
-.subtitulo{
-    font-size: 24px;
-    color: #888888;
-    margin-left: 30px
-}
+    .subtitulo{
+        font-size: 24px;
+        color: #888888;
+        margin-left: 30px
+    }
 
-.titulo{
-    font-size: 72px;
-    
-    margin: 10px 0 25px 25px;
-    padding-left: 20px;
-}
+    .titulo{
+        font-size: 72px;
+        margin: 10px 0 25px 25px;
+        padding-left: 20px;
+    }
 
-.bloco{
-    
-    display: flex;
-    margin: 30px 150px 0 150px;
-}
+    .bloco{
+        
+        display: flex;
+        margin: 30px 150px 100px 150px;
+    }
 
-.bloco-2{
-     
-     display: flex;
-     margin: 30px 1150px 0 150px;
-}
+    .bloco-2{
+        justify-content: space-between;
+        display: flex;
+        margin: 30px 10px 50px 150px;
+        gap: 300px;
+        
+    }
 
-.bloco-3{
-     
-     display: flex;
-     margin: -140px 150px 0 1000px;
-}
+    .bloco-3{
+        justify-content: space-between;
+        display: flex;
+        margin: 30px 30px 50px 150px;
+        gap: 500px;
+    }
 
-h3{
-    font-size: 24px;
-    color: #001122
-}
+    h3{
+        font-size: 24px;
+        color: #001122
+    }
 
-p{
-    font-size: 24px;
-    color: #666666;
-    line-height: 2em;
-    
-}
-
-
-
-
-footer {
-    background-color: #f2f2f2
-}
-
-footer h1 {
-    justify-content: center;
-    display: flex;
-}
-
-footer ul {
-    margin-left: 120px;
-    list-style: none;
-}
-
-.navbar{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    
-}
-
-
-
-  .botao_login{
-    width: 60px;
-    height: 45px;
-    background: #ffffff00;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    margin-top: 15px;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    
-}
-
-
-.container7{
-    display: flex;
-    margin: 40px 150px 0 150px;
-    justify-content: space-between;
-}
+    p{
+        font-size: 24px;
+        color: #666666;
+        line-height: 2em;
+        
+    }
