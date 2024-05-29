@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - EPTRAN</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
     <link rel="icon" href="/imagens/prefeitura-municipal-de-joinville-logo.png" type="image/png">
 </head>
 <body>
     <header class="navbar">
             <div class="container-brasao">
                 <div class="brasao-imagem">
-                    <img src="imagens/prefeitura-municipal-de-joinville-logo.png" alt="">
+                    <img src="imagens/Logo Eptran.png" alt="">
                 </div>
                 <div class="brasao-texto">
                     <div class="Home">
@@ -23,9 +22,9 @@
 
             <div class="menu">
                 <div class="fonte">
-                    <li><a href="#"></a>Notícias</li>
-                    <li><a href="#"></a>Saiba Mais</li>
-                    <a href="login.html"><input type="button" class="botao_login" value="Login"></a>
+                    <li>Notícias</li>
+                    <a href=".duvidas"><input type="button" class="botao_login" value="Dúvidas"></a>
+                    <a href="login/login.html"><input type="button" class="botao_login" value="Login"></a>
                 </div>
             </div>
     </header>
@@ -36,7 +35,7 @@
         </div>
     </section>
 
-    <section class="Series_Incias">
+    <section class="Series_Home">
         <div class="incial_img">
             <img src="imagens/Series Inicias.jpg">
         </div>
@@ -54,7 +53,7 @@
         </div> 
     </section>
 
-    <section class="Series_Incias">
+    <section class="Series_Home">
         <div class="Acessar">
             <div class="texto_home_1">
                 <h1>Séries Finais</h1>
@@ -92,12 +91,51 @@
             
     </section>
     
-    <section>
-        <div class="duvidas">
+    <section class="duvidas">
+        <div class="titulo_duvida">
             <h1>DÚVIDAS</h1>
         </div>
+        <div class="container6">
+
+            <div>
+        
+                 <ul class="saibamais">
+                    <li>
+                        <input type="radio" name="accordion" id="primeiro">
+                        <label for="primeiro">O que é o EPTRAN?</label>
+                        <div class="content">
+                            <p>A Escola Pública de Trânsito é encontrada em diversos estados, sendo o governo de cada um responsável por implementar, com base no Artigo 74 do Código Brasileiro de Trânsito. A EPTran integra o Departamento Estadual de Trânsito e está vinculada à Diretoria para o Trânsito e Fiscalização.</p>
+                        </div>
+                    </li>
+                 </ul>
+        
+                 <ul class="saibamais">
+                    <li>
+                        <input type="radio" name="accordion" id="segundo">
+                        <label for="segundo">Qual é a importância do EPTRAN?</label>
+                        <div class="content">
+                            <p>A Escola Pública de Trânsito (EPTran) tem por finalidade desenvolver atividades de conscientização do cidadão quanto à adoção de comportamentos adequados, frente às diversas situações de trânsito vivenciadas no seu dia a dia, valorizando o espaço público compartilhado por diferentes modais e contribuindo para aumentar a segurança no trânsito e a preservação da vida.
+                            </p>
+                        </div>
+                    </li>
+                 </ul>
+        
+                 <ul class="saibamais">
+                    <li>
+                        <input type="radio" name="accordion" id="terceiro">
+                        <label for="terceiro">Quem nós somos?</label>
+                        <div class="content">
+                            <p>Os responsáveis por esse mocukp/projeto são alunos que pertencem a Escola S - Norte - de Joinville(SC). O início do trabalho foi no começo de novembro e estará sendo finalizado no final do 1º semestre de 2024.</p>
+                        </div>
+                    </li>
+                 </ul>
+            </div>
+        </div>
     </section>
-       
+
+        
+
+    
     <footer>
         <h1>Fale Conosco</h1>
         <ul>
@@ -108,6 +146,6 @@
             <li>Email: <br>centraldeinformacoes@detran.sc.gov.br</li>
         </ul>
     </footer>
-
+    <script src="index.js"></script>
 </body>
 </html>

@@ -7,11 +7,15 @@
         font-weight: bold;
     }
 
+    body{
+        background-color: #f6f6f6;
+    }
+
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     header{
@@ -42,7 +46,7 @@
         width: 9vh;
         height: 6vw;
         display: flex;
-        
+        margin-left: 6px;
     }
 
     .navbar{
@@ -119,9 +123,8 @@
     .incial_img img{
         width: 600px;
         background-color: #f0f0f0;
-        border-radius: 10px;
+        border-radius: 30px;
         border: 1px solid black;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     }
 
     .texto_home_1{
@@ -146,9 +149,8 @@
         font-weight: 500;
     }
 
-    .Series_Incias{
+    .Series_Home{
         display: flex;
-        
         gap: 30px;
         justify-content: center;
         margin-top: 90px;
@@ -162,7 +164,6 @@
     }
     .Ensino_Home{
         display: flex;
-       
         gap: 130px;
         justify-content: center;
         margin-top: 90px;   
@@ -190,20 +191,22 @@
 
     .duvidas{
         display: flex;
-        justify-content: center;
+    }
+
+    .titulo_duvida{
+        text-align: center;
         font-size: 35px;
-        
-        
+        height: 60px;
     }
 
 /*login*/
 
-    .login{
+    /* .login{
         display: block;
         justify-content: space-between;
         align-items: normal;
         min-height: 100vh;
-        background: rgb(255, 255, 255)
+        background: #f6f6f6
         
     }
 
@@ -250,12 +253,12 @@
         display: flex;
         justify-content: space-between;
         font-size: 14.5px;
-        margin: -15px 0 15px;
+        margin: -25px 0 15px;
     }
 
     .esquecer-senha label input{
         accent-color: #fff;
-        margin-right: 3px;
+        margin-right: 5px;
     }
 
     .esquecer-senha a{
@@ -389,7 +392,7 @@
         display: flex;
         justify-content: center;
         margin-top: 150px;
-    }
+    } */
 
     /* Paginas */
 
@@ -437,6 +440,13 @@
         font-weight: bold;
         margin: 60px 10px 10px 150px;
         gap: 790px;
+    }
+
+    .container6{
+        display: flex;
+        margin: 70px 150px 0 150px;
+        
+        
     }
 
     .subtitulo{
@@ -489,6 +499,67 @@
 
     }
 
-    /*tela de cadastro */
+    /* saiba mais */
 
+
+   .saibamais{
+    width: 1000px;
+
+   }
     
+   .saibamais li{
+        list-style: none;
+        width: 100%;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        background: #F7F7F7;
+        box-shadow: 6px 6px 10px -1px rgba(0,0,0, 0.15),
+                    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+   }
+
+   .saibamais li label{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+   }
+
+   label::before{
+        content: '+';
+        margin-right: 20px;
+        font-weight: 700;
+        font-size: 26px;
+        color: #9f9c9c
+   }
+
+   input[type="radio"]{
+    display: none
+   }
+
+
+
+   .saibamais .content{
+    padding: 0 10px;
+    line-height: 24px;
+    max-height: 0;
+    overflow: hidden;
+    color: #555;
+    transition: max-height 0.5s, padding 0.5s;
+   }
+
+   .saibamais input[type="radio"]:checked + label + .content{
+    max-height: 400px;
+    padding: 10px 10px 20px;
+   }
+
+   .saibamais input[type="radio"]:checked + label::before{
+    content: '-';
+   }
+
+   ::-webkit-scrollbar {
+    width: 0px;
+}
+
