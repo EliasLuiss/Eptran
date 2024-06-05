@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tema-claro {
+            background-color: beige;
+            color: black;
+            border: 1px solid #cccccc;
+        }
+
+        .tema-escuro{
+            background-color: black;
+            color: #ffffff;
+            border: 1px solid #666666;
+        }
+    </style>
+</head>
+<body>
+    <div id="conteudo" class="tema-claro">
+        <h1>Manipulação DOM</h1>
+        <p>Este é um parágrafo de exemplo.</p>
+        <button onclick="AlterarTema()">Alterar Tema</button>
+        <button onmouseout="AlterarAzul()">Azul</button>
+    </div>
+    
+
+    <script>
+        function AlterarTema() {
+            var conteudo = document.querySelector('#conteudo')
+            console.log(conteudo)
+            if (conteudo.classList.contains("tema-claro")){
+                conteudo.classList.remove('tema-claro');
+                conteudo.classList.add('tema-escuro');
+                console.log(conteudo)
+            }else{
+                conteudo.classList.remove('tema-escuro');
+                conteudo.classList.add('tema-claro');
+            }
+        }
+
+        function AlterarAzul() {
+            var conteudo = document.querySelector(".tema-claro");
+
+            conteudo.style.backgroundColor = "blue";
+        }
+    </script>
+</body>
+</html>
