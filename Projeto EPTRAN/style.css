@@ -21,8 +21,6 @@
             width: 20px;
         }
 
-      
-
     }
 
     body{
@@ -65,7 +63,8 @@
         width: 9vh;
         height: 6vw;
         display: flex;
-        margin-left: 6px;
+        margin-left: 15px;
+ 
     }
 
     .navbar{
@@ -79,13 +78,13 @@
     .botao_login{
         width: 78px;
         height: 45px;
-        background: #ffffff00;
+        background: #00000000;
         border: none;
         outline: none;
-        cursor: pointer;
         font-size: 18px;
         font-weight: 600;
         margin-top: 15px;
+        margin-top: 10px;
         border-radius: 10px;
         color: rgb(255, 255, 255);
         font-weight: bold;
@@ -137,6 +136,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url(imagens/entrada-de-joinville.png);
+        background-color: #00000065;
+        background-repeat: no-repeat;
+        background-size:cover;
+        
     }
 
     .home_brasao img {
@@ -219,7 +223,9 @@
     }
 
     #duvidas{
+        width: 100%;
         display: inline-grid;
+        justify-content: center;
 
     }
 
@@ -227,7 +233,6 @@
         text-align: center;
         font-size: 35px;
         height: 60px;
-
     }
 
     /* Paginas */
@@ -280,8 +285,7 @@
 
     .container6{
         display: flex;
-
-        margin: 70px 150px 0 150px;
+        margin: 70px 0 0 -50px;
         
         
     }
