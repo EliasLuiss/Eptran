@@ -5,6 +5,22 @@
     font-weight: bold;
 }
 
+@media screen and (max-width: 1000px){
+    .navbar{
+        width: 50%
+    }
+
+    .conainer-brasao{
+        width: 70%
+    }
+    
+    .brasao-texto{
+        margin: 5px;
+        width: 20px;
+    }
+
+}
+
 body{
     background-color: #f6f6f6;
 }
@@ -18,7 +34,6 @@ body{
 
 header{
     background-color: #0C326F;
-   
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -38,35 +53,46 @@ footer h1 {
 footer ul {
     margin-left: 120px;
     list-style: none;
+    margin-bottom: 10px;
 }
 
 .brasao-imagem{
     width: 9vh;
     height: 6vw;
     display: flex;
-    margin-left: 6px;
+    margin-left: 15px;
+
 }
 
 .navbar{
     position: fixed;
     top: 0;
     width: 100%;
-    
+    height: 100px;
+    z-index: 1;
 }
 
 .botao_login{
-    width: 60px;
+    width: 78px;
     height: 45px;
-    background: #ffffff00;
+    background: #00000000;
     border: none;
     outline: none;
-    cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-top: 15px;
+    margin-top: 10px;
     border-radius: 10px;
     color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.5s;
     
+}
+
+.botao_login:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    background-color: rgba(100, 100, 100, 0.5);
 }
 
 .container-brasao{
@@ -75,63 +101,90 @@ footer ul {
 }
 
 .brasao-texto{
-    margin-left: 7vh;
+    margin-left: 6vh;
     color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.menu li{
-    display: inline-block;
-    margin: 2px 2vh;
+
+.menu .fonte{
+    display: flex;
+    margin: 10px 3vh;
     color: #FFFFFF;
-    font-size: 2vh;
 
 }
 
-.menu li a{
+.menu .fonte a{
     display: flex;
     text-decoration: none;
     color: #FFFFFF;
     text-transform: uppercase;
     border-radius: 5px;
-    padding: 8px;  
+    padding: 25px;  
+    cursor: pointer
 }
 
-.menu li a:hover{
+.botao_login{
+    width: 78px;
+    height: 45px;
+    background: #00000000;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.5s;
+    
+}
+
+.botao_login:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
     background-color: rgba(100, 100, 100, 0.5);
 }
 
-.home_brasao{
-    margin-top: 100px;
-    margin-bottom: 100px;
+
+.container-brasao{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.home_brasao img {
-    width: 450px;
-    margin-top: 90px;
+.brasao-texto{
+    margin-left: 6vh;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
-.incial_img {
-    justify-content: space-between;
-    display: flex; 
+.menu .fonte{
+    display: flex;
+    margin: 10px 3vh;
+    color: #FFFFFF;
+
 }
 
-.incial_img img{
-    width: 600px;
-    background-color: #f0f0f0;
-    border-radius: 30px;
-    border: 1px solid black;
+.menu .fonte a{
+    display: flex;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 25px;  
+    cursor: pointer
 }
-
-
 
 .login{
     display: block;
     justify-content: space-between;
     align-items: normal;
-    min-height: 100vh;
+    min-height: 50vh;
     background: #f6f6f6
     
 }
@@ -143,17 +196,19 @@ footer ul {
     padding: 30px 40px;
     background-color: #f5f5f5;
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    margin-top: 100px;
 }
 
 .aparencia h1{
     font-size: 36px;
     text-align: center;
+    font-family: "Inter", sans-serif;;
 }
 
 .aparencia .input-box{
     width: 100%;
     height: 50px;
-    background: #DAFF94;
+    background: #555555;
     margin: 25px 0;
     border-radius: 40px;
 }
@@ -211,6 +266,8 @@ footer ul {
     margin-left: 80px;
     margin-top: 5px;
     margin-bottom: 15px;
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 
 .aparencia .registro-link{
@@ -221,7 +278,7 @@ footer ul {
 
 .registro-link p a {
     text-decoration: none;
-    color: #333333;
+    color: #000000;
     font-weight: 600;
 }
 
@@ -244,7 +301,7 @@ footer ul {
 .aparencia .input-box{
     width: 100%;
     height: 50px;
-    background: #DAFF94;
+    background: #c3d8ff;
     margin: 25px 0;
     border-radius: 40px;
 }
@@ -263,7 +320,8 @@ footer ul {
 }
 
 .input-box input::placeholder{
-    color: #888888
+    color: #7777778f;
+    font-weight: bold;
 }
 
 .aparencia .esquecer-senha{
@@ -306,6 +364,7 @@ footer ul {
 
 .login_img img{
     width: 200px; 
+    margin-bottom: -40px;
 }
 
 .login_img {
@@ -318,4 +377,8 @@ footer ul {
     display: flex;
     justify-content: center;
     margin-top: 150px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
 }

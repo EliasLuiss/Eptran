@@ -1,32 +1,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
-* {
-    padding: 0;
+.fonte{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1000px){
+    .navbar{
+        width: 50%
+    }
+
+    .conainer-brasao{
+        width: 70%
+    }
+    
+    .brasao-texto{
+        margin: 5px;
+        width: 20px;
+    }
+
+}
+
+body{
+    background-color: #f6f6f6;
+}
+
+*{
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+header{
+    background-color: #0C326F;
     width: 100%;
-    height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background: #d5d5da4d;
+    padding: 2vh 0;
 }
 
-.container {
-    width: 80%;
-    height: 70vh;
+footer {
+    background-color: #f2f2f2;
+}
+
+footer h1 {
+    justify-content: center;
     display: flex;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-    border-radius: 20px;
-    margin-top: 160px;
+}
+
+footer ul {
+    margin-left: 120px;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.brasao-imagem{
+    width: 9vh;
+    height: 6vw;
+    display: flex;
+    margin-left: 15px;
+
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 5;
+}
+
+.botao_login{
+    width: 78px;
+    height: 45px;
+    background: #00000000;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    transition: 0.5s;
     
 }
 
+.botao_login:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    background-color: rgba(100, 100, 100, 0.5);
+}
+
+.container-brasao{
+    display: flex;
+    align-items: center;
+}
+
+.brasao-texto{
+    margin-left: 6vh;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.menu .fonte{
+    display: flex;
+    margin: 10px 3vh;
+    color: #FFFFFF;
+
+}
+
+.menu .fonte a{
+    display: flex;
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 3px 25px 5px 27px;
+    cursor: pointer;
+    border: 1px solid black
+}
+
+
+section{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 850px;
+}
+
+.container {
+    width: 65%;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+    border-radius: 20px;
+}
+
 .form-image {
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,12 +155,12 @@ body {
 }
 
 .form-image img {
-    width: 500px;
+    width: 250px;
     border-radius: 10px;
 }
 
 .form {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -263,7 +382,7 @@ body {
 }
 
 .home_brasao{
-    margin-top: 100px;
+    margin-top: 150px;
     margin-bottom: 100px;
     display: flex;
     justify-content: center;

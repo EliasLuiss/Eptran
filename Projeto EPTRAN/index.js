@@ -65,14 +65,10 @@ function smoothScrollTo(endX, endY, duration) {
 
 // Accordion
 
-var btn = document.querySelector('#show-or-hide');
-var container_menu = document.querySelector('.container_menu');
+cnst observador = new IntersectionObserver(
+  entories => {
+    console.log(entries);
+  }
+);
 
-btn.addEventListener('click', function() {
-
-    if(container_menu.style.display === 'block') {
-        container_menu.style.display = 'none';
-    } else {
-        container_menu.style.display = 'block'
-    }
-});
+const element = document.getElementById('element');
