@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 .fonte{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -14,10 +15,6 @@
         width: 70%
     }
     
-    .brasao-texto{
-        margin: 5px;
-        width: 20px;
-    }
 
 }
 
@@ -57,11 +54,9 @@ footer ul {
 }
 
 .brasao-imagem{
-    width: 9vh;
-    height: 6vw;
+    padding: 10px 10px 10px 10px;
     display: flex;
     margin-left: 15px;
-
 }
 
 .navbar{
@@ -72,58 +67,9 @@ footer ul {
     z-index: 1;
 }
 
-.botao_login{
-    width: 78px;
-    height: 45px;
-    background: #00000000;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 15px;
-    margin-top: 10px;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    transition: 0.5s;
-    
-}
-
-.botao_login:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
-    background-color: rgba(100, 100, 100, 0.5);
-}
-
-.container-brasao{
-    display: flex;
-    align-items: center;
-}
-
-.brasao-texto{
-    margin-left: 6vh;
-    color: #FFFFFF;
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-
-.menu .fonte{
-    display: flex;
-    margin: 10px 3vh;
-    color: #FFFFFF;
-
-}
-
-.menu .fonte a{
-    display: flex;
-    text-decoration: none;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    border-radius: 5px;
-    padding: 25px;  
-    cursor: pointer
+.container-brasao img {
+    width: 7vw;
+    height: 15vh;
 }
 
 .botao_login{
@@ -140,34 +86,29 @@ footer ul {
     color: rgb(255, 255, 255);
     font-weight: bold;
     transition: 0.5s;
-    
+    font-optical-sizing: auto;
+    /* border: 1px solid black; */
+    cursor: pointer;
 }
 
 .botao_login:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
+    font-optical-sizing: auto;
+    cursor: pointer;
     transition: 0.5s;
     background-color: rgba(100, 100, 100, 0.5);
 }
-
 
 .container-brasao{
     display: flex;
     align-items: center;
 }
 
-.brasao-texto{
-    margin-left: 6vh;
-    color: #FFFFFF;
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
-}
 
 .menu .fonte{
     display: flex;
     margin: 10px 3vh;
     color: #FFFFFF;
-
 }
 
 .menu .fonte a{
@@ -176,9 +117,11 @@ footer ul {
     color: #FFFFFF;
     text-transform: uppercase;
     border-radius: 5px;
-    padding: 25px;  
-    cursor: pointer
+    padding: 2px 5px 10px 27px;  
+    /* border: 1px solid black; */
+    cursor: default;
 }
+
 
 .login{
     display: block;
