@@ -53,24 +53,54 @@
                             <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required>
                         </div>
                         <div class="input-box">
-                            <label for="Matricula">Numero da Matricula</label>
-                            <input id="Matricula" type="text" name="Matricula" placeholder="Digite o numero" required>
+                            <label for="email">Digite seu E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="Digite seu e-mail" autocomplete="email" required>
                         </div>
 
                         <div class="input-box">
-                            <label for="number">Celular</label>
-                            <input id="number" type="tel" name="number" placeholder="(xx) xxxxx-xxxx" required>
+                            <label for="Telefone">Celular</label>
+                            <input id="Telefone" type="tel" name="tel" autocomplete="tel" required  placeholder="(xx) xxxxx-xxxx">
                         </div>
-
+                        
                         <div class="input-box">
                             <label for="password">Senha</label>
-                            <input id="password" type="password" name="password" placeholder="Digite sua senha" required>
+                            <input id="password" type="password" name="password" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   onchange="confereSenha()" title="Precisa conter pelo menos uma Letra maiscula, minuscula e um numero">
                         </div>
 
-
+                    
                         <div class="input-box">
                             <label for="confirmPassword">Confirme sua Senha</label>
-                            <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirme a senha" required>
+                            <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirme a senha" onchange="confereSenha()" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>CEP</label>
+                            <input type="text" name="cep" required>
+                        </div>
+                          
+                        <div class="input-box">
+                            <label>Rua</label>
+                            <input type="text" name="rua" required>
+                        </div>
+                            
+                        <div class="input-box">
+                            <label>Bairro</label>
+                            <input type="text" name="bairro" required>
+                        </div>
+                            
+                        <div class="input-box">
+                            <label>Cidade</label>
+                            <input type="text" name="cidade" required>
+                        </div>
+                            
+                        <div class="input-box">
+                            <label>Estado</label>
+                            <input type="text" name="estado" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="escola">Escola</label>
+                            <input type="text" name="escola" id="escola" placeholder="Insira o nome de sua escola">
                         </div>
 
                     </div>
@@ -110,6 +140,7 @@
             </div>
         </div>
     </section>
+    <script src="script.js"></script>
 </body>
 
 </html>
