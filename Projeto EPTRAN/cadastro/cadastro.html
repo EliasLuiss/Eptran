@@ -32,7 +32,7 @@
                 <img src="/imagens/Foca.png" alt="">
             </div>
             <div class="form">
-                <form action="#">
+                <form id="form" action="#">
                     <div class="form-header">
                         <div class="title">
                             <h1>Cadastre-se</h1>
@@ -46,61 +46,68 @@
                         <div class="input-box">
                             <label for="firstname">Primeiro Nome</label>
                             <input id="firstname" type="text" name="firstname" placeholder="Digite seu primeiro nome" required>
+                            <div class="error"></div>
                         </div>
 
                         <div class="input-box">
                             <label for="lastname">Sobrenome</label>
                             <input id="lastname" type="text" name="lastname" placeholder="Digite seu sobrenome" required>
-                        </div>
-                        <div class="input-box">
-                            <label for="email">Digite seu E-mail</label>
-                            <input id="email" type="email" name="email" placeholder="Digite seu e-mail" autocomplete="email" required>
+                            <div class="error"></div>
                         </div>
 
                         <div class="input-box">
-                            <label for="Telefone">Celular</label>
-                            <input id="Telefone" type="tel" name="tel" autocomplete="tel" required  placeholder="(xx) xxxxx-xxxx">
+                            <label for="email">Digite seu E-mail</label>
+                            <input id="email" type="email" name="email" placeholder="Digite seu e-mail" autocomplete="email" required>
+                            <div class="error"></div>
                         </div>
                         
                         <div class="input-box">
                             <label for="password">Senha</label>
                             <input id="password" type="password" name="password" placeholder="Digite sua senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   onchange="confereSenha()" title="Precisa conter pelo menos uma Letra maiscula, minuscula e um numero">
+                            <div class="error"></div>
                         </div>
 
                     
                         <div class="input-box">
                             <label for="confirmPassword">Confirme sua Senha</label>
                             <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirme a senha" onchange="confereSenha()" required>
+                            <div class="error"></div>
                         </div>
 
                         <div class="input-box">
                             <label>CEP</label>
-                            <input type="text" name="cep" required>
+                            <input type="text" name="cep" placeholder="Informe seu CEP" required>
+                            <div class="error"></div>
                         </div>
                           
                         <div class="input-box">
                             <label>Rua</label>
-                            <input type="text" name="rua" required>
+                            <input type="text" name="rua" placeholder="Informe seu Rua" required>
+                            <div class="error"></div>
                         </div>
                             
                         <div class="input-box">
                             <label>Bairro</label>
-                            <input type="text" name="bairro" required>
+                            <input type="text" name="bairro" placeholder="Informe seu Bairro" required>
+                            <div class="error"></div>
                         </div>
                             
                         <div class="input-box">
                             <label>Cidade</label>
-                            <input type="text" name="cidade" required>
+                            <input type="text" name="cidade" placeholder="Informe seu Cidade" required>
+                            <div class="error"></div>
                         </div>
                             
                         <div class="input-box">
                             <label>Estado</label>
-                            <input type="text" name="estado" required>
+                            <input type="text" name="estado" placeholder="Informe seu Estado" required>
+                            <div class="error"></div>
                         </div>
 
                         <div class="input-box">
                             <label for="escola">Escola</label>
-                            <input type="text" name="escola" id="escola" placeholder="Insira o nome de sua escola">
+                            <input type="text" name="escola" id="escola" placeholder="Insira a sua escola" required>
+                            <div class="error"></div>
                         </div>
 
                     </div>
@@ -134,12 +141,22 @@
                     </div>
 
                     <div class="continue-button">
-                        <button><a href="#">Continuar</a> </button>
+                        <button type="submit"><a href="#">Continuar</a> </button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
+    <footer>
+        <h1>Fale Conosco</h1>
+        <ul>
+            <li>Telefone/WhatsApp</li>
+            <li>(48) 3664-1800</li>
+            <li>(48) 3664-1902</li>
+            <br>
+            <li>Email: <br>centraldeinformacoes@detran.sc.gov.br</li>
+        </ul>
+    </footer>
     <script src="script.js"></script>
 </body>
 
