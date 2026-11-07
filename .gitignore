@@ -1,0 +1,11 @@
+# dependências e builds
+node_modules/
+.next/
+out/
+
+# editor
+.vscode/
+.idea/
+
+# sistema
+.DS_Store

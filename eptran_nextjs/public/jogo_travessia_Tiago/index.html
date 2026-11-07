@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foca</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="tela_inicial" class="tela_jogo flex">
+            <div class="botoesPrincipais">
+                <button id="botao_iniciar" class="botao_iniciar" onclick="iniciarJogo()"></button>
+                <button id="botao_instrucao" class="botao_comoJogar"></button>
+            </div>
+        </div>
+       <div class="dados">
+           <h2 id="qntMoedas" class="invisivel">MOEDAS: 0</h2>
+           <h2 id="level" class="invisivel">Level 1</h2>      
+        </div>
+           <button id="voltar" class="invisivel" onclick="resetarJogo(1)">Voltar</button>
+
+        <div id="telaCinza" class="invisivel">
+            <h1 id="Perdeu">VOCE PERDEU</h1>
+            <div class="resultados">
+                <div class="pont">
+                    <h2 id="pontuacao">Pontos: 0</h2>
+                    <h2 id="maiorLevel">Maior Level: 1</h2>
+                </div>
+                <div class="bot">
+                    <button id="botao_recomecar" onclick="resetarJogo()">Recomeçar</button>
+                </div>
+            </div>
+        </div>
+        <div id="popup_instrucao" class="invisivel">
+            <div class="instrucao">
+                <h1>Como jogar</h1>
+                <p>tiago ramos, faz as instrucoes de merda ai</p>
+                <button class="fechar-popup" onclick="fecharPopup()">X</button>
+            </div>
+        </div>
+
+        <canvas id="canvas" width="1280" height="820"></canvas>
+
+        <div class="movement_buttons invisivel" id="movement_buttons">
+            <div></div>
+            <button class="movement-button" id="button-up" aria-label="Move Up">▲</button>
+            <div></div>
+            <button class="movement-button" id="button-left" aria-label="Move Left">◀</button>
+            <button class="movement-button" id="button-down" aria-label="Move Down">▼</button>
+            <button class="movement-button" id="button-right" aria-label="Move Right">▶</button>
+        </div>
+    </div>
+
+    <script>
+        var requestID = 0;
+
+
+        document.getElementById("botao_instrucao").addEventListener("click", function() {
+            const tela_instrucao = document.getElementById("popup_instrucao");
+            tela_instrucao.classList.remove('invisivel');
+        });
+       
+        function fecharPopup(){
+            const tela = document.getElementById("popup_instrucao");
+            tela.classList.add("invisivel");
+        }
+
+        document.addEventListener("click", function(event) {
+            const tela_instrucao = document.getElementById("popup_instrucao");
+            const instrucaoContent = document.querySelector("#popup_instrucao .instrucao");
+            const botao_instrucao = document.getElementById("botao_instrucao");
+
+            if (!tela_instrucao.classList.contains('invisivel') &&
+                !instrucaoContent.contains(event.target) &&
+                event.target !== botao_instrucao) {
+                tela_instrucao.classList.add('invisivel');
+            }
+        });
+
+        function resetarJogo(voltar) {
+            velocidadeLimite = 5;
+            pontuacao = 0;
+            nivel = 1;
+            quantidadeMoedas = 0;
+            listaMoedas = [];
+            foca.position = { x: 590, y: 760 };
+            foca.velocidade = { x: 0, y: 0 };
+            jogoAtivo = true;
+            nivel_maximo = 0;
+           
+            if(voltar){
+                document.getElementById("voltar").classList.add("invisivel");
+                document.getElementById("tela_inicial").classList.add("flex");
+                document.getElementById("tela_inicial").classList.remove("invisivel");
+            }else{
+                requestID = 1;
+                document.getElementById("telaCinza").classList.add("invisivel");
+                document.getElementById("level").classList.remove("invisivel");
+                document.getElementById("qntMoedas").classList.remove("invisivel");
+            }
+           
+            document.getElementById("qntMoedas").innerHTML = "MOEDAS: " + quantidadeMoedas;
+            document.getElementById("level").innerHTML = "level: " + 1;
+            document.getElementById("maiorLevel").innerHTML = "Maior Level: " + nivel_maximo;
+            document.getElementById("pontuacao").innerHTML = "Pontos: " + quantidadeMoedas;
+
+
+            cancelAnimationFrame(requestID);
+        }
+        var canvas, ctx, width, height, key = {};
+        var jogoAtivo = true;
+        var velocidadeLimite = 6;
+        var nivel = 1;
+        var nivel_maximo = 0;
+
+        canvas = document.getElementById("canvas");
+        width = canvas.width;
+        height = canvas.height;
+       
+        var focaimg = new Image();
+        focaimg.src = 'img/foca.png';
+
+
+        var carroimg = new Image();
+        carroimg.src = 'img/carro1.png';
+        var carroimg2 = new Image();
+        carroimg2.src = 'img/carro2.png';
+        var carroimg3 = new Image();
+        carroimg3.src = 'img/carro3.png';
+
+
+
+
+        var tiposCarros = [carroimg, carroimg2, carroimg3];
+
+
+
+        var ruaimg = new Image();
+        ruaimg.src = 'img/rua.png';
+
+        var faixaimg = new Image();
+        faixaimg.src = 'img/Faixa.png';
+
+        var moedaimg = new Image();
+        moedaimg.src = 'img/Moeda.png';
+
+        var gramaimg = new Image();
+        gramaimg.src = 'img/grama.png';
+        var gramaPattern;
+
+        var saidaimg = new Image();
+        saidaimg.src = 'img/saida.png';
+
+        var foca = {
+            position: { x: 590, y: 760 },
+            position2: { x: 590 + ((590 / 2 )/ 2) , y: 760 + ((760 / 2) /2)  },
+            width1:20,
+            height1:30,
+            width: 40,
+            height: 60,
+            color: "pink",
+            velocidade: { x: 0, y: 0 },
+            direcao: 1
+        };
+
+        var carrosRua1 = [
+            { position: { x: -100, y: 500 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+            { position: { x: -300, y: 570 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "green", velocidade: (Math.floor((Math.random()* 6)+1))},
+            { position: { x: -500, y: 500 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+            { position: { x: -600, y: 570 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "green", velocidade: (Math.floor((Math.random()* 6)+1))},  
+            { position: { x: -100, y: 500 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+        ];
+
+        var carrosRua2 = [
+            { position: { x: canvas.width + 100 , y: 160 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+            { position: { x: canvas.width + 300, y: 250 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "green", velocidade: (Math.floor((Math.random()* 6)+1))},
+            { position: { x: canvas.width + 500, y: 160 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+            { position: { x: canvas.width + 600, y: 250 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "green", velocidade: (Math.floor((Math.random()* 6)+1))},  
+            { position: { x: canvas.width + 100, y: 160 }, width: 100, height: 60,img: tiposCarros[Math.floor(Math.random() * tiposCarros.length)], color: "red", velocidade: (Math.floor((Math.random()* 6)+1)) },
+        ];
+
+        var rua = {
+            width: 1280,
+            height: 180,
+            position: { x: 0, y: 480},
+            position2: { x: 0, y: 150}
+        }
+
+        var faixa = {
+            width: 100,
+            height: 180,
+            position: { x: 100, y: 150},
+            position2: { x: 800, y: 480}
+        }
+
+        var saida = {
+            position: {
+                x: (1280 / 2) - 60,
+                y: 0,
+            },
+            width: 100,
+            height: 80
+        };
+
+        var moedas = {
+            width: 32.5,
+            height: 32.5,
+            color: "yellow",
+            position: { x: 400, y: 390 },
+        };
+
+        var posicoesYmoedas = [390, 700, 80];
+        var listaMoedas = [moedas];
+        var quantidadeMoedas = 1;
+        var aumentarMoedas = 2;
+        var backgroundMusic;
+        var isMusicPlaying = false;
+
+        // Add this function to initialize and play the background music
+        function initializeMusic() {
+            backgroundMusic = new Audio('Audio/AudioJogo.mp3')
+            backgroundMusic.loop = true;
+            backgroundMusic.volume = 0.5; // Adjust volume as needed
+        }
+
+        // Add this function to toggle music play/pause
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                backgroundMusic.pause();
+                isMusicPlaying = false;
+            } else {
+                backgroundMusic.play();
+                isMusicPlaying = true;
+            }
+        }
+
+        function resizeGame() {
+            var gameContainer = document.querySelector('.game-container');
+            var canvas = document.getElementById('canvas');
+            var widthToHeight = 1280 / 820;
+            var newWidth = window.innerWidth;
+            var newHeight = window.innerHeight;
+            var newWidthToHeight = newWidth / newHeight;
+           
+            if (newWidthToHeight > widthToHeight) {
+                newWidth = newHeight * widthToHeight;
+                canvas.style.height = newHeight + 'px';
+                canvas.style.width = 'auto';
+            } else {
+                newHeight = newWidth / widthToHeight;
+                canvas.style.width = newWidth + 'px';
+                canvas.style.height = 'auto';
+            }
+           
+            gameContainer.style.fontSize = (newWidth / 1280) + 'em';
+        }
+
+        window.addEventListener('resize', resizeGame);
+        window.addEventListener('load', resizeGame);
+
+        function adicionarMoeda() {
+            for (let i = 0; i < aumentarMoedas; i++) {
+                var novaMoeda = {
+                    width: 32.5,
+                    height: 32.5,
+                    color: "yellow",
+                    position: {
+                        x: Math.floor(Math.random() * (canvas.width - 20)),
+                        y: posicoesYmoedas[Math.floor(Math.random() * posicoesYmoedas.length)]
+                    },
+                };
+                listaMoedas.push(novaMoeda);
+            }
+            if (aumentarMoedas < 15 ) { aumentarMoedas++ }
+        }
+
+        function verificarColisaoComMoeda(moeda) {
+            return (
+                foca.position.x < moeda.position.x + moeda.width &&
+                foca.position.x + foca.width > moeda.position.x &&
+                foca.position.y < moeda.position.y + moeda.height &&
+                foca.position.y + foca.height > moeda.position.y
+            );
+        }
+
+        function verificarColetaMoedas() {
+            listaMoedas = listaMoedas.filter(moeda => {
+                if  (verificarColisaoComMoeda(moeda)) {
+                    document.getElementById("qntMoedas").innerHTML = "MOEDAS: " + quantidadeMoedas;
+                    document.getElementById("pontuacao").innerHTML = "Pontos: " + quantidadeMoedas;
+                    quantidadeMoedas++
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        function passarDeFase() {
+            if (aumentarMoedas < 15) {
+                aumentarMoedas++;
+            }
+           
+            listaMoedas = [];
+           
+            adicionarMoeda();
+        }
+
+        function trocarFaixas() {
+            faixa.position.x = Math.floor(Math.random() * (width - 200)) + 100;
+            faixa.position2.x = Math.floor(Math.random() * (width - 200)) + 100;
+        }
+
+        function aumentarVelocidade() {
+            velocidadeLimite++
+        }
+
+        function main() {
+            canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            width = canvas.width;
+            height = canvas.height;
+
+            initializeMusic();
+            window.addEventListener('keydown', function (e) {
+                if (e.code === 'KeyM') {
+                    toggleMusic();
+                }
+            });
+
+            window.addEventListener('keydown', function (e) {
+                key[e.code] = true;
+            });
+
+            window.addEventListener('keyup', function (e) {
+                key[e.code] = false;
+            });
+
+            // Updated touch events for movement buttons
+            var buttons = document.querySelectorAll('.movement-button');
+            buttons.forEach(function(button) {
+                button.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    var keyName = this.id.replace('button-', 'Key').toUpperCase();
+                    key[keyName] = true;
+                    console.log(`touchstart: ${keyName} ativado`); // Log de depuração
+                });
+               
+                button.addEventListener('touchend', function(e) {
+                    e.preventDefault();
+                    var keyName = this.id.replace('button-', 'Key').toUpperCase();
+                    key[keyName] = false;
+                    console.log(`touchend: ${keyName} desativado`); // Log de depuração
+                });
+
+                button.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    var keyName = this.id.replace('button-', 'Key').toUpperCase();
+                    key[keyName] = true;
+                    console.log(`mousedown: ${keyName} ativado`); // Log de depuração
+                });
+
+                button.addEventListener('mouseup', function(e) {
+                    e.preventDefault();
+                    var keyName = this.id.replace('button-', 'Key').toUpperCase();
+                    key[keyName] = false;
+                    console.log(`mouseup: ${keyName} desativado`); // Log de depuração
+                });
+                button.addEventListener('mouseout', function(e) {
+                    e.preventDefault();
+                    var keyName = this.id.replace('button-', 'Key').toUpperCase();
+                    key[keyName] = false;
+                    console.log(`mouseup: ${keyName} desativado`); // Log de depuração
+                });
+            });
+
+            resizeGame();
+            requestID = requestAnimationFrame(loop);
+        }
+
+
+        function update() {
+            if (!jogoAtivo) return;
+
+            if (key["KeyW"] || key["KEYUP"]) {
+                foca.velocidade.y = -5;
+            } else if (key["KeyS"] || key["KEYDOWN"]) {
+                foca.velocidade.y = 5;
+            } else {
+                foca.velocidade.y = 0;
+            }
+
+            if (key["KeyA"] || key["KEYLEFT"]) {
+                foca.velocidade.x = -5;
+                foca.direcao = -1;
+            } else if (key["KeyD"] || key["KEYRIGHT"]) {
+                foca.velocidade.x = 5;
+                foca.direcao = 1;
+            } else {
+                foca.velocidade.x = 0;
+            }
+
+            foca.position.x += foca.velocidade.x;
+            foca.position.y += foca.velocidade.y;
+            foca.position2.x = (foca.position.x + ((foca.width / 2) /2))
+            foca.position2.y = (foca.position.y + ((foca.height / 2) /2))
+
+
+
+            if (foca.position.x < 0) foca.position.x = 0;
+            if (foca.position.x + foca.width > width) foca.position.x = width - foca.width;
+            if (foca.position.y < 0) foca.position.y = 0;
+            if (foca.position.y + foca.height > height) foca.position.y = height - foca.height;
+
+
+            carrosRua1.forEach(carro => {
+                carro.position.x += carro.velocidade;
+                if (carro.position.x > width) {
+                    carro.position.x = -carro.width;
+                    carro.img = tiposCarros[Math.floor(Math.random() * tiposCarros.length)]
+                    carro.velocidade = (Math.floor((Math.random()* velocidadeLimite)+1))
+                }
+            });
+
+
+            carrosRua2.forEach(carro => {
+                carro.position.x -= carro.velocidade;
+                if (carro.position.x < -carro.width ) {
+                    carro.position.x = canvas.width + carro.width;
+                    carro.img = tiposCarros[Math.floor(Math.random() * tiposCarros.length)]
+                    carro.velocidade = (Math.floor((Math.random()* velocidadeLimite)+1))
+                }
+            });
+        }
+
+
+
+        function draw() {
+            if (!jogoAtivo) {
+                if(nivel_maximo < nivel) {
+                    nivel_maximo = nivel
+                }
+
+
+
+                document.getElementById("maiorLevel").innerHTML = "Maior Level: " + nivel_maximo;
+                document.getElementById("telaCinza").classList.remove("invisivel");
+                document.getElementById("level").classList.add("invisivel");
+                document.getElementById("qntMoedas").classList.add("invisivel");
+                return;
+            }
+
+
+            let scaleGrama = 1;
+            let scaledGramaImg = document.createElement('canvas');
+            scaledGramaImg.width = gramaimg.width * scaleGrama;
+            scaledGramaImg.height = gramaimg.height * scaleGrama;
+            let scaledGramaCtx = scaledGramaImg.getContext('2d');
+            scaledGramaCtx.drawImage(gramaimg, 0, 0, scaledGramaImg.width, scaledGramaImg.height);
+            gramaPattern = ctx.createPattern(scaledGramaImg, 'repeat');
+
+
+
+            ctx.fillStyle = gramaPattern;
+            ctx.fillRect(0, 0, width, height);
+
+
+            ctx.drawImage(ruaimg,rua.position.x, rua.position.y , rua.width, rua.height);
+            ctx.drawImage(ruaimg, rua.position2.x, rua.position2.y , rua.width, rua.height);
+            ctx.drawImage(saidaimg, saida.position.x, saida.position.y , saida.width, saida.height);
+            ctx.drawImage(faixaimg, faixa.position.x, faixa.position.y , faixa.width, faixa.height);
+            ctx.drawImage(faixaimg, faixa.position2.x, faixa.position2.y , faixa.width, faixa.height);
+
+
+
+            listaMoedas.forEach(moeda => {
+                ctx.drawImage(moedaimg, moeda.position.x, moeda.position.y, moeda.width, moeda.height);
+            });
+
+
+
+
+            ctx.save();
+            ctx.translate(foca.position.x + foca.width / 2, foca.position.y + foca.height / 2);
+            ctx.scale(foca.direcao, 1);
+            ctx.drawImage(focaimg, -foca.width / 2, -foca.height / 2, foca.width, foca.height);
+            ctx.restore();
+
+
+
+
+            carrosRua1.forEach(carro => {
+                ctx.drawImage(carro.img, carro.position.x, carro.position.y, carro.width, carro.height);
+            });
+
+
+            carrosRua2.forEach(carro => {
+                ctx.save();
+                ctx.translate(carro.position.x + carro.width, carro.position.y);
+                ctx.scale(-1, 1);
+                ctx.drawImage(carro.img, 0, 0, carro.width, carro.height);
+                ctx.restore();
+            });
+        }
+
+        function detectarColisoes() {
+            verificarColetaMoedas();
+
+
+            var estafaixa = false;
+            var timerId;
+
+            var estaNaFaixa1 = foca.position2.x < faixa.position.x + faixa.width &&
+                foca.position2.x + foca.width1 > faixa.position.x &&
+                foca.position2.y < faixa.position.y + faixa.height &&
+                foca.position2.y + foca.height1 > faixa.position.y;
+
+            var estaNaFaixa2 = foca.position2.x < faixa.position2.x + faixa.width &&
+                foca.position2.x + foca.width1 > faixa.position2.x &&
+                foca.position2.y < faixa.position2.y + faixa.height &&
+                foca.position2.y + foca.height1 > faixa.position2.y;
+
+            if (estaNaFaixa1 || estaNaFaixa2) {
+                estafaixa = true;
+            }
+
+            carrosRua1.concat(carrosRua2).forEach(carro => {
+                if (
+                    carro.position.x < foca.position2.x + foca.width1 &&
+                    carro.position.x + carro.width > foca.position2.x &&
+                    carro.position.y < foca.position2.y + foca.height1 &&
+                    carro.position.y + carro.height > foca.position2.y
+                ) {
+                    jogoAtivo = false;
+                    if (isMusicPlaying) {
+                        toggleMusic();
+                    }
+                    clearTimeout(timerId);
+                }
+            });
+
+            if (
+                (rua.position.x < foca.position2.x + foca.width1 &&
+                rua.position.x + rua.width > foca.position2.x &&
+                rua.position.y < foca.position2.y + foca.height1 &&
+                rua.position.y + rua.height > foca.position2.y &&
+                !estafaixa) ||
+                (rua.position2.x < foca.position2.x + foca.width1 &&
+                rua.position2.x + rua.width > foca.position2.x &&
+                rua.position2.y < foca.position2.y + foca.height1 &&
+                rua.position2.y + rua.height > foca.position2.y &&
+                !estafaixa)
+            ) {
+                jogoAtivo = false;
+                if (isMusicPlaying) {
+                toggleMusic();
+                }
+            }
+
+            if (
+                foca.position2.x < saida.position.x + saida.width &&
+                foca.position2.x + foca.width1 > saida.position.x &&
+                foca.position2.y < saida.position.y + saida.height &&
+                foca.position2.y + foca.height1 > saida.position.y
+            ) {
+                trocarFaixas()
+                aumentarVelocidade()
+                adicionarMoeda()
+                passarDeFase()
+                nivel++
+                document.getElementById("level").innerHTML = "level " + nivel;
+                foca.position.y = height
+            }
+        }
+
+        function loop() {
+            update();
+            draw();
+            detectarColisoes();
+            requestID = requestAnimationFrame(loop);
+        }
+
+        function iniciarJogo(){
+            document.getElementById("tela_inicial").classList.remove("flex");
+            document.getElementById("voltar").classList.remove("invisivel");
+            document.getElementById("tela_inicial").classList.add("invisivel");
+            var movement_buttons = document.getElementById("movement_buttons");
+            document.getElementById("qntMoedas").classList.remove("invisivel");
+            document.getElementById("level").classList.remove("invisivel");;
+           
+            movement_buttons.style.display = "grid";
+            main();
+            resizeGame();
+            toggleMusic();
+        }
+       
+    </script>
+</body>
+</html>
